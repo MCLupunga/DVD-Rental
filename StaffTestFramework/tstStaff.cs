@@ -9,6 +9,7 @@ namespace StaffTestFramework
         [TestMethod]
         public void TestMethod1()
         {
+            //create a new instancee
         }
     }
 }
