@@ -8,5 +8,6 @@ namespace StockTestFramework
 {
     class tstStock
     {
+        //create instance
     }
 }
