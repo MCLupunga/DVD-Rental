@@ -14,5 +14,11 @@ namespace ClassLibrary
         public DateTime ReleaseDate { get; set; }
         public int ShelfLocation { get; set; }
         public int StockID { get; set; }
+
+        public bool Find(clsStock aStock)
+        {
+            //always return true
+            return true;
+        }
     }
 }
