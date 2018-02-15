@@ -2,18 +2,18 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibrary;
 
-namespace CustomersTestFramework
+namespace StockTestFramework
 {
     [TestClass]
-    public class tstCustomers
+    public class tstStockk
     {
         [TestMethod]
         public void InstanceOK()
         {
-            //Create an instance
-            clsCustomers ACustomer = new clsCustomers();
+            //create an instance of the class
+            clsStock AStock = new clsStock();
             //test to see if it exists
-            Assert.IsNotNull(ACustomer);
+            Assert.IsNotNull(AStock);
         }
     }
 }
