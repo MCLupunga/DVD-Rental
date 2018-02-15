@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace StockTestFramework
 {
-    class tstStock
-    {
-        //create a new instance
-    }
+ //comments comments comments  
 }
