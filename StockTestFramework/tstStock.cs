@@ -97,16 +97,17 @@ namespace StockTestFramework
         [TestMethod]
         public void FindMethodOK()
         {
-            //create an instance of the class
+            //create an instance of the class you want to create
             clsStock AStock = new clsStock();
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
             Int32 StockID = 1;
             //invoke the method
-            Found = AStock.Find(AStock);
+            Found = AStock.Find(StockID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
         }
+
     }
 }

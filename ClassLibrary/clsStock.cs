@@ -15,7 +15,7 @@ namespace ClassLibrary
         public int ShelfLocation { get; set; }
         public int StockID { get; set; }
 
-        public bool Find(clsStock aStock)
+        public bool Find(int stockID)
         {
             //always return true
             return true;
