@@ -132,5 +132,20 @@ namespace CustomersTestFramework
             //test to see if the two values are the same
             Assert.AreEqual(ACustomer.MembershipCardNo, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class you want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 CustomerNo = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerNo);
+            //test to see if the result is correct
+            Assert.IsTrue(Found);
+        }
     }
 }

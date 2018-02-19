@@ -13,5 +13,11 @@ namespace ClassLibrary
         public string LastName { get; set; }
         public int MembershipCardNo { get; set; }
         public string PhoneNo { get; set; }
+
+        public bool Find(int customerNo)
+        {
+            //always return true
+            return true;
+        }
     }
 }
