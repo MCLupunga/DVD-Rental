@@ -22,7 +22,7 @@ namespace StockTestFramework
             //create an instance of the class
             clsStock AStock = new clsStock();
             //create some test data to assign to the property
-            Int32 TestData = 12345678;
+            Int32 TestData = 1;
             //assign the data to the property
             AStock.StockID = TestData;
             //test to see if the two values are the same
@@ -102,7 +102,7 @@ namespace StockTestFramework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StockID = 12345678;
+            Int32 StockID = 1;
             //invoke the method
             Found = AStock.Find(AStock);
             //test to see that the result is correct
