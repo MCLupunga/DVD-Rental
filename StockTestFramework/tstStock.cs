@@ -109,7 +109,70 @@ namespace StockTestFramework
             Assert.IsTrue(Found);
         }
 
-        //IS THIS WORKING?
+        [TestMethod]
+        public void TestStockIDFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean varibale to store the results of the search
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StockID = 101;
+            //invoke the method
+            Found = AStock.Find(StockID);
+            //check the stock ID
+            if (AStock.StockID != 101)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
 
+        [TestMethod]
+        public void TestNameFound()
+        {
+            //create an instance of teh class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the results of the search
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StockID = 101;
+            //invoke the method
+            Found = AStock.Find(StockID);
+            //check the property
+            if (AStock.Name != "Test Name")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestGenreFound()
+        {
+            //create an instance of teh class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the results of the search
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StockID = 101;
+            //invoke the method
+            Found = AStock.Find(StockID);
+            //check the property
+            if (AStock.Genre != "Test Genre")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }
