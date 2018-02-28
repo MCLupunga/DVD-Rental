@@ -30,7 +30,8 @@ public class clsDataConnection
 
     public clsDataConnection()
     {
-        GetConString("I:\\DVDRentals\\DVDRentals.mdf.mdf");
+        GetConString("I:\\DVDRentals\\DVDRentals.mdf");
+            //I've created a new "I:\DVDRentals\DVDDatabase.mdf"
     }
 
     public clsDataConnection(string DBLocation)
