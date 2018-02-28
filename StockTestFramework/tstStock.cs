@@ -174,5 +174,7 @@ namespace StockTestFramework
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        // tests tests
     }
 }
