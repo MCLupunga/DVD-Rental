@@ -147,5 +147,26 @@ namespace CustomersTestFramework
             //test to see if the result is correct
             Assert.IsTrue(Found);
         }
+        [TestMethod]
+        public void TestCustomerNoFound()
+        {
+            //create an instance of the new class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerNo = 1234567;
+            //invoke the method
+            Found = ACustomer.Find(CustomerNo);
+            //check the customerNo
+            if (ACustomer.CustomerNo !=1234567)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
     }
 }

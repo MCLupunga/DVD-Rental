@@ -113,5 +113,27 @@ namespace StaffTestFramework
             //test to see that the result is correct
             Assert.IsTrue(Found);
         }
+
+        [TestMethod]
+        public void TestStaffCodeFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (aasume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            String StaffCode = "MDZ123";
+            //invoke test method
+            Found = AStaff.Find(StaffCode);
+            //check the staff code
+            if (AStaff.StaffCode != "MDZ123")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
     }    
 }
