@@ -164,14 +164,103 @@ namespace StaffTestFramework
             //boolean variable to store the result of the search
             Boolean Found = false;
             //boolean variable to record if data is OK (aasume it is)
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             String StaffCode = "MDZ123";
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the property
-            if (AStaff.LastName ! = "Dzikiti")
+            if (AStaff.LastName != "Dzikiti")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
                 
+        }
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (aasume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            String StaffCode = "MDZ123";
+            //invoke test method
+            Found = AStaff.Find(StaffCode);
+            //check the property
+            if (AStaff.Address != "123 DMU")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateOfBirthFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (aasume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            String StaffCode = "MDZ123";
+            //invoke test method
+            Found = AStaff.Find(StaffCode);
+            //check the property
+            if (AStaff.DateOfBirth !=Convert.ToDateTime(DateTime.Now.Date.AddYears(-18)))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestNextofKinFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (aasume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            String StaffCode = "MDZ123";
+            //invoke test method
+            Found = AStaff.Find(StaffCode);
+            //check the property
+            if (AStaff.NextOfKin != "Ruth Jones")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestPhoneNumberFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (aasume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            String StaffCode = "MDZ123";
+            //invoke test method
+            Found = AStaff.Find(StaffCode);
+            //check the property
+            if (AStaff.PhoneNo != "01215667896")
+            {
+                OK = false;
+            }
+            //test to see that the rsult is correct
+            Assert.IsTrue(OK);
         }
     }    
 }
