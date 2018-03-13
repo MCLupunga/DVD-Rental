@@ -22,7 +22,7 @@ namespace StockTestFramework
             //create an instance of the class
             clsStock AStock = new clsStock();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            string TestData = "101";
             //assign the data to the property
             AStock.StockID = TestData;
             //test to see if the two values are the same
@@ -149,7 +149,7 @@ namespace StockTestFramework
             //invoke the method
             Found = AStock.Find(StockID);
             //check the stock ID
-            if (AStock.StockID != 101)
+            if (AStock.StockID != "101")
             {
                 OK = false;
             }
