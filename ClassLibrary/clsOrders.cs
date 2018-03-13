@@ -4,17 +4,32 @@ namespace ClassLibrary
 {
     public class clsOrders
     {
-        public string CustomerID { get; set; }
-        public string StockID { get; set; }
-        public DateTime ExpectedReturnDate { get; set; }
-        public DateTime OrderDate { get; set; }
-        public string OrderNo { get; set; }
-        public string PaymentMethod { get; set; }
+        //private data member for OrderNo
+        private string mOrderNo;
+        //private data member for CustomerID
+        private string mCustomerID;
+        //private data member for StockID
+        private string mStockID;
+        //private data member for ExpectedReturnDate
+        private DateTime mExpectedReturnDate;
+        //private data member for order date
+        private DateTime mOrderDate;
+        //private data member for PaymentMethod
+        private string mPaymentMethod;]
 
-        public bool Find(string orderNo)
+        //public property for OrderNo
+        public string OrderNo
         {
-            //always return true
-            return true;
+            get
+            {
+                //return the private data
+                return mOrderNo;
+            }
+            set
+            {
+                //set the value of the private data member
+                mOrderNo = value;
+            }
         }
     }
     
