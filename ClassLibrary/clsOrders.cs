@@ -5,7 +5,7 @@ namespace ClassLibrary
     public class clsOrders
     {
         public string CustomerID { get; set; }
-        public string DVDID { get; set; }
+        public string StockID { get; set; }
         public DateTime ExpectedReturnDate { get; set; }
         public DateTime OrderDate { get; set; }
         public string OrderNo { get; set; }
@@ -17,5 +17,5 @@ namespace ClassLibrary
             return true;
         }
     }
-    //nothing to see
+    
 }

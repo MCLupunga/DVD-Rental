@@ -5,7 +5,7 @@ namespace ClassLibrary
     public class clsStock
     {
         //private data member from the Stock ID property
-        private Int32 mStockID;
+        private string mStockID;
         //private data member from the property
         private string mName;
         //private data member from the property
