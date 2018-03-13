@@ -120,7 +120,7 @@ namespace ClassLibrary
             }
         }
         //public property for the stock ID
-        public int StockID
+        public string StockID
         {
             get
             {
@@ -137,7 +137,7 @@ namespace ClassLibrary
         public bool Find(int stockID)
         {
             ///set the private data member to the test data value
-            mStockID = 101;
+            mStockID = "101";
             mName = "The Hunger Games";
             mGenre = "Drama";
             mClassification = "12A";
