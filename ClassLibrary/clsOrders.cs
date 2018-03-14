@@ -101,17 +101,33 @@ namespace ClassLibrary
                 mPaymentMethod = value;
             }
         }
-        public bool Find (string OrderNo)
+        public bool Find(string OrderNo)
         {
-            //set the private data members to the test data value
-            mOrderNo = "98765";
-            mCustomerID = "123456";
-            mStockID = "5678";
-            mExpectedReturnDate = Convert.ToDateTime(DateTime.Now.Date);
-            mOrderDate = Convert.ToDateTime(DateTime.Now.Date);
-            mPaymentMethod = "card";
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the order number to search for
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrders_FilterByOrderNo");
+            //if one record is found (there should be either 1 or 0)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["OrderNo"]);
+                mCustomerID = Convert.ToString(DB.DataTable.Rows[0]["CustomerID"]);
+                mStockID = Convert.ToString(DB.DataTable.Rows[0]["StockID"]);
+                mExpectedReturnDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ExpectedReturnDate"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mPaymentMethod = Convert.ToString(DB.DataTable.Rows[0]["PaymentMthod"]);
+                //return that everything worked ok
+                return true;
+            }
+            //if no record is found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }
