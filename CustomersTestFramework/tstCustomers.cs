@@ -182,7 +182,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.DOB != Convert.ToDateTime("25/04/1976"))
+            if (ACustomer.DOB != Convert.ToDateTime("24/03/1976"))
             {
                 OK = false;
             }
@@ -205,7 +205,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property 
-            if (ACustomer.DateAdded != Convert.ToDateTime("21/10/2017"))
+            if (ACustomer.DateAdded != Convert.ToDateTime("27/04/2017"))
             {
                 OK = false;
 
@@ -295,7 +295,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.PhoneNo != "Test PhoneNumer")
+            if (ACustomer.PhoneNo != "Test PhoneNo")
             {
                 OK = false;
             }
