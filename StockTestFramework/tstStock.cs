@@ -22,7 +22,7 @@ namespace StockTestFramework
             //create an instance of the class
             clsStock AStock = new clsStock();
             //create some test data to assign to the property
-            string TestData = "101";
+            string TestData = "125";
             //assign the data to the property
             AStock.StockID = TestData;
             //test to see if the two values are the same
@@ -128,11 +128,31 @@ namespace StockTestFramework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StockID = 1;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "12A";
+            string ReleaseDate = DateTime.Now.Date.AddDays(+3).ToString();
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
         }
 
         [TestMethod]
@@ -145,11 +165,11 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the stock ID
-            if (AStock.StockID != "101")
+            if (AStock.StockID != "125")
             {
                 OK = false;
             }
@@ -167,7 +187,7 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
@@ -189,7 +209,7 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
@@ -211,7 +231,7 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
@@ -233,11 +253,11 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
-            if (AStock.ShelfLocation != 23)
+            if (AStock.ShelfLocation != 34)
             {
                 OK = false;
             }
@@ -254,11 +274,11 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
-            if (AStock.ReleaseDate !=Convert.ToDateTime(DateTime.Now.Date))
+            if (AStock.ReleaseDate !=Convert.ToDateTime(DateTime.Now.Date.AddDays(+3)))
             {
                 OK = false;
             }
@@ -275,7 +295,7 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
@@ -297,7 +317,7 @@ namespace StockTestFramework
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockID = 101;
+            string StockID = "125";
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property

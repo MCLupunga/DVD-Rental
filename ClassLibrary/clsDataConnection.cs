@@ -10,7 +10,7 @@ using System.Data;
 ///it is free for use by anybody so long as you give credit to the original author i.e me
 ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2013
 
-namespace ClassLibary
+namespace ClassLibrary
 {
     
 public class clsDataConnection
