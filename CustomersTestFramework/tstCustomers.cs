@@ -141,11 +141,32 @@ namespace CustomersTestFramework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 1234567;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //test to see if the result is correct
             Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class you want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string FirstName = "John";
+            string LastName = "Smith";
+            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.com";
+            string PhoneNo = "07865432345";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+
         }
         [TestMethod]
         public void TestCustomerNoFound()

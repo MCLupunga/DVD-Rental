@@ -134,19 +134,40 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int stockID)
+        public bool Find(string StockID)
         {
-            ///set the private data member to the test data value
-            mStockID = "101";
-            mName = "The Hunger Games";
-            mGenre = "Drama";
-            mClassification = "12A";
-            mShelfLocation = 23;
-            mReleaseDate = Convert.ToDateTime(DateTime.Now.Date);
-            mQuantity = 10;
-            mPrice = 2;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customerno to the search
+            DB.AddParameter("@StockID", StockID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByStockID");
+            //if one record is found (there should be either 1 or 0)
+            if (DB.Count == 1)
+            {
+                //set the private data member to the test data value
+                mStockID = Convert.ToString(DB.DataTable.Rows[0]["StockID"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mGenre = Convert.ToString(DB.DataTable.Rows[0]["Genre"]);
+                mClassification = Convert.ToString(DB.DataTable.Rows[0]["Classification"]);
+                mShelfLocation = Convert.ToInt32(DB.DataTable.Rows[0]["ShelfLocation"]);
+                mReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ReleaseDate"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
+                //always return true
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+        }
+
+        public string Valid(string StockID, string Name, string Genre, string Classification, string ReleaseDate)
+        {
+            return"";
         }
     }
 }

@@ -159,18 +159,40 @@ namespace ClassLibrary
 
         public bool Find(int customerNo)
         {
-            //set the private data member to the test data value
-            mCustomerNo = 1234567;
-            mDateAdded = Convert.ToDateTime("27/04/2017");
-            mDOB = Convert.ToDateTime("24/03/1976");
-            mEmail = "Test Email";
-            mFirstName = "Test FirstName";
-            mLastName = "Test LastName";
-            mMembershipCardNo = 2343567;
-            mPhoneNo = "Test PhoneNo";
-            mActive = true;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customerno to the search
+            DB.AddParameter("@CustomerNo", CustomerNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomers_FilterByCustomerNo");
+            //if one record is found (there should be either 1 or 0)
+            if (DB.Count == 1)
+            {
+                //set the private data member to the test data value
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["DOB"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mMembershipCardNo = Convert.ToInt32(DB.DataTable.Rows[0]["MembershipCardNo"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mActive = true;
+                //always return true
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+           
+        }
+
+        public string Valid(string firstName, string lastName, string dateAdded, string dOB, string email, string phoneNo)
+        {
+            return"";
         }
     }
 }
