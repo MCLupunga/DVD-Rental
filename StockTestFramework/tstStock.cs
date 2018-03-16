@@ -278,7 +278,7 @@ namespace StockTestFramework
             //invoke the method
             Found = AStock.Find(StockID);
             //check the property
-            if (AStock.ReleaseDate !=Convert.ToDateTime(DateTime.Now.Date.AddDays(+3)))
+            if (AStock.ReleaseDate != Convert.ToDateTime("03/04/2012"))
             {
                 OK = false;
             }
