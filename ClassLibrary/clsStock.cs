@@ -175,7 +175,7 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Stock ID may not be blank : ";
             }
-            //if the StockID is greater than 8 characters
+            //if the StockID no is greater than 8 characters
             if (stockID.Length > 8)
             {
                 //record the error
