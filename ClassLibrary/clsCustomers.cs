@@ -200,6 +200,13 @@ namespace ClassLibrary
                 //record the error 
                 Error = Error + "The firstName may not be blank : ";
             }
+            //if the FirstName is no greater than 51 characters
+            if (firstName.Length > 51)
+            {
+                //record the error 
+                Error = Error + "The firstName must be less than 51 characters : ";
+            }
+            //return any error messages 
             return Error;
         }
     }
