@@ -456,7 +456,7 @@ namespace StockTestFramework
             //invoke the method
             Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void StockIDExtremeMax()
@@ -475,7 +475,7 @@ namespace StockTestFramework
             //invoke the method
             Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
