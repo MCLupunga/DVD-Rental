@@ -18,7 +18,7 @@ namespace ClassLibrary
         //private data member for the LastName property
         private string mLastName;
         //private data member for the MembershipCardNo property
-        private int mMembershipCardNo;
+        private Int32 mMembershipCardNo;
         //private data member for the PhoneNo
         private string mPhoneNo;
         
@@ -157,7 +157,7 @@ namespace ClassLibrary
         }
 
 
-        public bool Find(int customerNo)
+        public bool Find(int CustomerNo)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -192,7 +192,15 @@ namespace ClassLibrary
 
         public string Valid(string firstName, string lastName, string dateAdded, string dOB, string email, string phoneNo)
         {
-            return"";
+            //create a string variable to store the error
+            String Error = "";
+            //if the CustomerNo is blank
+            if (firstName == "0")
+            {
+                //record the error 
+                Error = Error + "The firstName may not be blank : ";
+            }
+            return Error;
         }
     }
 }

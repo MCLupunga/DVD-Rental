@@ -35,7 +35,7 @@ namespace CustomersTestFramework
             //create an instance of the class you want to create
             clsCustomers ACustomer = new clsCustomers();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 1234567;
             //assign the data to the property
             ACustomer.CustomerNo = TestData;
             //test to see if the two values are the same
@@ -74,7 +74,7 @@ namespace CustomersTestFramework
             //create an instance of the class you want to create
             clsCustomers ACustomer = new clsCustomers();
             //create some test data to assign to the property
-            string TestData = "scarlet@gmail.com";
+            string TestData = "johnsmith@email.com";
             //assign the data to the property
             ACustomer.Email = TestData;
             //test to see if the two values are the same
@@ -87,7 +87,7 @@ namespace CustomersTestFramework
             //create an instance of the class you want to create
             clsCustomers ACustomer = new clsCustomers();
             //create some test data to assign to the property
-            string TestData = "Scarlet";
+            string TestData = "John";
             //assign the data to the property
             ACustomer.FirstName = TestData;
             //test to see if the two values are the same
@@ -100,7 +100,7 @@ namespace CustomersTestFramework
             //create an instance of the class you want to create
             clsCustomers ACustomer = new clsCustomers();
             //create some test data to assign to the property
-            string TestData = "Kidd";
+            string TestData = "Smith";
             //assign the data to the property
             ACustomer.LastName = TestData;
             //test to see if the two values are the same
@@ -126,7 +126,7 @@ namespace CustomersTestFramework
             //create an instance of the class you want to create
             clsCustomers ACustomer = new clsCustomers();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 2323231;
             //assign the data to the property
             ACustomer.MembershipCardNo = TestData;
             //test to see if the two values are the same
@@ -203,7 +203,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.DOB != Convert.ToDateTime("24/03/1976"))
+            if (ACustomer.DOB != Convert.ToDateTime("23/05/1996"))
             {
                 OK = false;
             }
@@ -250,7 +250,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.Email != "Test Email")
+            if (ACustomer.Email != "johnsmith@email.co.uk")
             {
                 OK = false;
             }
@@ -272,7 +272,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.FirstName != "Test FirstName")
+            if (ACustomer.FirstName != "John")
             {
                 OK = false;
             }
@@ -294,7 +294,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.LastName != "Test LastName")
+            if (ACustomer.LastName != "Smith")
             {
                 OK = false;
             }
@@ -303,7 +303,7 @@ namespace CustomersTestFramework
 
         }
         [TestMethod]
-        public void TestPhoneNumberFound()
+        public void TestPhoneNoFound()
         {
             //create an instance of the new class we want to create
             clsCustomers ACustomer = new clsCustomers();
@@ -316,7 +316,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.PhoneNo != "Test PhoneNo")
+            if (ACustomer.PhoneNo != "07865432345")
             {
                 OK = false;
             }
@@ -338,7 +338,7 @@ namespace CustomersTestFramework
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.MembershipCardNo != 2343567)
+            if (ACustomer.MembershipCardNo != 2323231)
             {
                 OK = false;
             }
@@ -346,5 +346,101 @@ namespace CustomersTestFramework
             Assert.IsTrue(OK);
 
         }
+        [TestMethod]
+        public void FirstNameLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store anu error message
+            string Error = "";
+            //create some test data to pass to the method
+            string FirstName = "";//this should trigger an error
+            string LastName = "Smith";
+            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.com";
+            string PhoneNo = "07865432345";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void FirstNameMin()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store anu error message
+            string Error = "";
+            //create some test data to pass to the method
+            string FirstName = "J";//this should be ok
+            string LastName = "Smith";
+            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.com";
+            string PhoneNo = "07865432345";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void FirstNamePlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store anu error message
+            string Error = "";
+            //create some test data to pass to the method
+            string FirstName = "JJ";//this should be ok
+            string LastName = "Smith";
+            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.com";
+            string PhoneNo = "07865432345";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void FirstNameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store anu error message
+            string Error = "";
+            //create some test data to pass to the method
+            string FirstName = "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ";//this should be ok (49)
+            string LastName = "Smith";
+            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.com";
+            string PhoneNo = "07865432345";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void FirstNameMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store anu error message
+            string Error = "";
+            //create some test data to pass to the method
+            string FirstName = "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ";//this should be ok (50)
+            string LastName = "Smith";
+            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.com";
+            string PhoneNo = "07865432345";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
     }
 }
