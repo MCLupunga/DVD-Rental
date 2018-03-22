@@ -169,6 +169,8 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             string Error = "";
+            //ceate  temporary variable to sre date values
+            DateTime DateTemp;
             //if the HouseNo is blank
             if (stockID.Length == 0)
             {
@@ -181,6 +183,28 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Stock ID must be less than 8 characters : ";
             }
+            try
+            {
+                //copy the release date value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(releaseDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be so far in the past : ";
+                }
+                //
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be so far in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date";
+            }
+            
             //return any error messages
             return Error;
         }
