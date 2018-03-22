@@ -506,6 +506,12 @@ namespace CustomersTestFramework
         {
 
         }
+        
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+
+        }
         [TestMethod]
         public void LastNameLessOne()
         {
