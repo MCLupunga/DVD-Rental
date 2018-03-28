@@ -932,10 +932,163 @@ namespace StockTestFramework
             string Error = "";
             //create some test data to pass to the method
             string StockID = "";
-            string Name = "";
-            Name = Name.PadRight(100, 'a');
-            string Genre = "Drama";
+            string Name = "The Hunger Games";
+            string Genre = "";
+            Genre = Genre.PadRight(100, 'a');
             string Classification = "12A";
+            string ReleaseDate = "04/03/2012";
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMinLessOne()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "";
+            string ReleaseDate = "04/03/2012";
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMin()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "1";
+            string ReleaseDate = Convert.ToString(DateTime.Now.Date);
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMinPlusOne()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "12";
+            string ReleaseDate = Convert.ToString(DateTime.Now.Date);
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMid()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "aaa";
+            string ReleaseDate = Convert.ToString(DateTime.Now.Date);
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMaxLessOne()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "aaaaa";
+            string ReleaseDate = Convert.ToString(DateTime.Now.Date);
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMax()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "aaaaaa";
+            string ReleaseDate = Convert.ToString(DateTime.Now.Date);
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationMaxPlusOne()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "The Hunger Games";
+            string Genre = "Drama";
+            string Classification = "aaaaaaa";
+            string ReleaseDate = "04/03/2012";
+            //invoke the method
+            Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ClassificationExtremeMax()
+        {
+            //create an instance of the class you want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StockID = "125";
+            string Name = "";
+            string Genre = "Drama";
+            string Classification = "";
+            Classification = Classification.PadRight(10, 'a');
             string ReleaseDate = "04/03/2012";
             //invoke the method
             Error = AStock.Valid(StockID, Name, Genre, Classification, ReleaseDate);
