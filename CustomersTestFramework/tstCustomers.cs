@@ -377,6 +377,7 @@ namespace CustomersTestFramework
          
         
         }
+
         [TestMethod]
         public void DateAddedMinLessOne()
         {
@@ -404,6 +405,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
         [TestMethod]
         public void DateAddedMin()
         {
@@ -427,6 +429,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
         [TestMethod]
         public void DateAddedMinPlusOne()
         {
@@ -453,6 +456,7 @@ namespace CustomersTestFramework
             Assert.AreNotEqual(Error, "");
 
         }
+
        [TestMethod]
        public void DateAddedExtremeMax()
         {
@@ -480,7 +484,6 @@ namespace CustomersTestFramework
 
         }
 
-
         [TestMethod]
         public void FirstNameLessOne()
         {
@@ -500,6 +503,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void FirstNameMin()
         {
@@ -519,6 +523,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void FirstNamePlusOne()
         {
@@ -538,6 +543,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void FirstNameMaxLessOne()
         {
@@ -558,6 +564,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void FirstNameMax()
         {
@@ -578,6 +585,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void FirstNameMid()
         {
@@ -598,6 +606,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void FirstNameMaxPlusOne()
         {
@@ -618,6 +627,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
         }
+
         [TestMethod]
         public void FirstNameExtremeMax()
         {
@@ -637,8 +647,7 @@ namespace CustomersTestFramework
             Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
         }
 
-       
-              [TestMethod]
+        [TestMethod]
         public void LastNameMinLessOne()
         {
             //create an instance of the class we want to create
@@ -657,6 +666,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void LastNameMinPlusOne()
         {
@@ -676,6 +686,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void LastNameMaxPlusOne()
         {
@@ -695,6 +706,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void LastNameMaxLessOne()
         {
@@ -715,6 +727,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void LastNameMax()
         {
@@ -735,6 +748,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void LastNameMid()
         {
@@ -772,9 +786,6 @@ namespace CustomersTestFramework
             string PhoneNo = "07865432345";
             //invoke the method
             Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
-
-
-
         }
     }
 }
