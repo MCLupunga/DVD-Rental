@@ -179,7 +179,7 @@ namespace OrdersTestFramework
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
-            if (AnOrder.ExpectedReturnDate !=Convert.ToDateTime(DateTime.Now.Date))
+            if (AnOrder.ExpectedReturnDate !=Convert.ToDateTime("26/01/2018"))
             {
                 OK = false;
             }
@@ -200,7 +200,7 @@ namespace OrdersTestFramework
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
-            if (AnOrder.OrderDate != Convert.ToDateTime(DateTime.Now.Date))
+            if (AnOrder.OrderDate != Convert.ToDateTime("12/01/2018"))
             {
                 OK = false;
             }
@@ -221,12 +221,30 @@ namespace OrdersTestFramework
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
-            if (AnOrder.PaymentMethod != "card")
+            if (AnOrder.PaymentMethod != "Card")
             {
                 OK = false;
             }
             //test to see the result is correct
             Assert.IsTrue(OK);
         }
-     }     
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID,Expected_Return_Date,Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+    }     
  } 
