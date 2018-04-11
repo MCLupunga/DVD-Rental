@@ -170,19 +170,79 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The first name must be less than 50 characters : ";
             }
-            //cop the DOB value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(dOB);
-            if (DateTemp < DateTime.Now.Date)
+            try
+            {
+                //copy the DOB value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date can not be in the future : ";
+                }
+            }
+            catch
             {
                 //record the error
-                Error = Error + "The date cannot be in the past : ";
+                Error = Error + "The date is not a valid date : ";
             }
-            //check to see if the date is greater than todays date
-            if (DateTemp > DateTime.Now.Date)
+            //is the last name blank
+            if (last_name.Length == 0)
             {
                 //record the error
-                Error = Error + "The date can not be in the future : ";
+                Error = Error + "the last name can not be blank : ";
             }
+            //if the last name is too long
+            if (last_name.Length > 50)
+            {
+                Error = Error + "the last name must not be less than 50 characters : ";
+            }
+            //is the address blank
+            if (address.Length == 0)
+            {
+                //record the error
+                Error = Error + "the address can not be blank : ";
+            }
+            //if the address is too long
+            if (address.Length > 50)
+            {
+                Error = Error + "the address must not be less than 50 characters : ";
+            }
+            //is the phone number blank
+            if (phone_Number.Length == 0)
+            {
+                //record the error
+                Error = Error + "the phone number can not be blank : ";
+            }
+            //if the phone number is too long
+            if (phone_Number.Length > 50)
+            {
+                Error = Error + "the phone number must not be less than 50 characters : ";
+            }
+            //is the next of kin blank
+            if (next_of_Kin.Length == 0)
+            {
+                //record the error
+                Error = Error + "the next of kin can not be blank : ";
+            }
+            //if the next of kin is too long
+            if (next_of_Kin.Length > 50)
+            {
+                Error = Error + "the next of kin must not be less than 50 characters : ";
+            }
+
+
+
+
+
+
+
+
             //return any error message
             return Error;
         }
