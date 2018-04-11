@@ -21,7 +21,7 @@ namespace ClassLibrary
         private Int32 mMembershipCardNo;
         //private data member for the PhoneNo
         private string mPhoneNo;
-        
+
         //public property for active
         public bool Active
         {
@@ -35,7 +35,7 @@ namespace ClassLibrary
                 //set the private data
                 mActive = value;
             }
-        } 
+        }
         //public property for DateAdded
         public DateTime DateAdded
         {
@@ -74,13 +74,13 @@ namespace ClassLibrary
                 //return the private data
                 return mDOB;
             }
-              set
+            set
             {
                 //set the private data
                 mDOB = value;
             }
         }
-        
+
         //public property for Email
         public string Email
         {
@@ -187,27 +187,60 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
-           
+
         }
 
         public string Valid(string firstName, string lastName, string dateAdded, string dOB, string email, string phoneNo)
         {
-            //create a string variable to store the error
+            //create a string variable to store the error 
             String Error = "";
-            //if the CustomerNo is blank
-            if (firstName == "0")
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the CustomerNo if blank
+            if (firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer no may not be blank : ";
+            }
+            //if the customerno is greater than 7 characters
+            if (firstName.Length > 50)
             {
                 //record the error 
-                Error = Error + "The firstName may not be blank : ";
+                Error = Error + "The customerNo must be less than 1 characters";
             }
-            //if the FirstName is no greater than 51 characters
-            if (firstName.Length > 51)
+            //copy the dateAdded value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(dateAdded);
+            if (DateTemp < DateTime.Now.Date)
             {
-                //record the error 
-                Error = Error + "The firstName must be less than 51 characters : ";
+                //record the error
+                Error = Error + "The date cannot be put in the past : ";
             }
-            //return any error messages 
+            //check to see that the date is greater than today's date
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the future : ";
+            }
+            //return any error messages
             return Error;
+            {
+                //create a string variable to store the error
+                //String Error = "";
+                //if the CustomerNo is blank
+                if (firstName == "0")
+                {
+                    //record the error 
+                    Error = Error + "The firstName may not be blank : ";
+                }
+                //if the FirstName is no greater than 51 characters
+                if (firstName.Length > 51)
+                {
+                    //record the error 
+                    Error = Error + "The firstName must be less than 51 characters : ";
+                }
+                //return any error messages 
+                return Error;
+            }
         }
     }
 }
