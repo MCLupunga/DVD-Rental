@@ -271,7 +271,7 @@ namespace StaffTestFramework
             string Error = "";
             //create some test data to pass to the method
             string Address = "1 Dmu St  ";
-            string DOB = "01 / 01 / 1992";
+            string DOB = DateTime.Now.Date.ToString();
             string First_name = "Mary";
             string Last_name = "Zugs";
             string Next_of_Kin = "Dave Zugs";
@@ -342,6 +342,7 @@ namespace StaffTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void First_nameMaxLessOne()
         {
@@ -351,7 +352,7 @@ namespace StaffTestFramework
             string Error = "";
             //create some test data to pass to the method
             string Address = "1 Dmu St  ";
-            string DOB = "01 / 01 / 1992";
+            string DOB = DateTime.Now.Date.ToString();
             string First_name = "";
             First_name = First_name.PadRight(49, 'a');//this should be ok
             string Last_name = "Zugs";
@@ -371,7 +372,7 @@ namespace StaffTestFramework
             string Error = "";
             //create some test data to pass to the method
             string Address = "1 Dmu St  ";
-            string DOB = "01 / 01 / 1992";
+            string DOB = DateTime.Now.Date.ToString();
             string First_name = "";
             First_name = First_name.PadRight(50, 'a');//this should be ok
             string Last_name = "Zugs";
@@ -391,7 +392,7 @@ namespace StaffTestFramework
             string Error = "";
             //create some test data to pass to the method
             string Address = "1 Dmu St  ";
-            string DOB = DateTime.Now.Date.ToString(); ;
+            string DOB = DateTime.Now.Date.ToString();
             string First_name = "";
             First_name = First_name.PadRight(25, 'a');//this should be ok
             string Last_name = "Zugs";
@@ -402,6 +403,213 @@ namespace StaffTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
+        [TestMethod]
+        public void DOBExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date of birth is less 14 years
+            TestDate = TestDate.AddYears(-14);
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date of birth is less 15 years 364 days
+            TestDate = TestDate.AddYears(-15).AddDays(-364);
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DOBExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu st ";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date of birth is less 14 years
+            TestDate = TestDate.AddYears(70);
+            //convert the date variable to a string variable
+            string DOB = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
     }   
      
 }
