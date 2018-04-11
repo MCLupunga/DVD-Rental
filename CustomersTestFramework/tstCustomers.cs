@@ -346,6 +346,141 @@ namespace CustomersTestFramework
             Assert.IsTrue(OK);
 
         }
+    
+    [TestMethod]
+    public void DateAddedExtremeMin()
+    {
+        //create an instance of the class we want to create
+        clsCustomers ACustomer = new clsCustomers();
+        //string variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string FirstName = "John";
+        string LastName = "Smith";
+        string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+        
+        string Email = "johnsmith@email.co.uk";
+        string PhoneNo = "07865432345";
+        //create a variable to store the test data date
+        DateTime TestDate;
+        // set the date to today's date
+        TestDate = DateTime.Now.Date;
+        //change the date to whaever the date is less 100 years
+        TestDate = TestDate.AddYears(-100);
+        //convert he date variable to a string variable
+        string DateAdded = TestDate.ToString();
+        //invoke the method
+        Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+         
+        
+        }
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomers ACustomer = new clsCustomers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass the method 
+            string FirstName = "John";
+            string LastName = "Smith";
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+
+            string Email = "johnsmith@email.co.uk";
+            string PhoneNo = "07865432345";
+            //create a variable to store the test data date
+            DateTime TestDate;
+            // set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whaever the date is less 100 years
+            TestDate = TestDate.AddYears(-1);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName,DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            String Error = "";
+            //create some test data to pass the method 
+            string FirstName = "John";
+            string LastName = "Smith";
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.co.uk";
+            string PhoneNo = "07865432345";
+            //create a variable to store the test data date
+            DateTime TestDate;
+            // set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName,DateAdded,  DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            String Error = "";
+            //create some test data to pass the method 
+            string FirstName = "John";
+            string LastName = "Smith";
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.co.uk";
+            string PhoneNo = "07865432345";
+            //create a variable to store the test data date
+            DateTime TestDate;
+            // set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus one day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName,DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+       [TestMethod]
+       public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomers ACustomer = new clsCustomers();
+            String Error = "";
+            //create some test data to pass the method 
+            string FirstName = "John";
+            string LastName = "Smith";
+            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
+            string Email = "johnsmith@email.co.uk";
+            string PhoneNo = "07865432345";
+            //create a variable to store the test data date
+            DateTime TestDate;
+            // set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus one day
+            TestDate = TestDate.AddDays(100);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName,DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
         [TestMethod]
         public void FirstNameLessOne()
         {
@@ -356,7 +491,7 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "";//this should trigger an error
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -375,7 +510,7 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "J";//this should be ok
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -394,7 +529,7 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "JJ";//this should be ok
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -414,7 +549,7 @@ namespace CustomersTestFramework
             string FirstName = "";
             FirstName = FirstName.PadRight(49, 'J');//this should be ok
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -434,7 +569,7 @@ namespace CustomersTestFramework
             string FirstName = "";
             FirstName = FirstName.PadRight(50, 'J');//this should be ok
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -454,7 +589,7 @@ namespace CustomersTestFramework
             string FirstName = "";
             FirstName = FirstName.PadRight(25, 'J');//this should be ok
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -474,7 +609,7 @@ namespace CustomersTestFramework
             string FirstName = "";
             FirstName = FirstName.PadRight(51, 'J');//this should fail
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -484,7 +619,7 @@ namespace CustomersTestFramework
             Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
         }
         [TestMethod]
-        public void FirstNameExtreme()
+        public void FirstNameExtremeMax()
         {
             //create an instance of the class we want to create
             clsCustomers ACustomer = new clsCustomers();
@@ -493,27 +628,18 @@ namespace CustomersTestFramework
             string FirstName = "";
             FirstName = FirstName.PadRight(500, 'a');//this should fail
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
             //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
             Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
-
         }
-        [TestMethod]
-        public void DateAddedExtremeMin()
-        {
 
-        }
-        
-        [TestMethod]
-        public void DateAddedMinLessOne()
-        {
-
-        }
-        [TestMethod]
-        public void LastNameLessOne()
+       
+              [TestMethod]
+        public void LastNameMinLessOne()
         {
             //create an instance of the class we want to create
             clsCustomers ACustomer = new clsCustomers();
@@ -522,7 +648,7 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "John";
             string LastName = "";//this should trigger an error
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -532,7 +658,7 @@ namespace CustomersTestFramework
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void LastNameMin()
+        public void LastNameMinPlusOne()
         {
             //create an instance of the class we want to create
             clsCustomers ACustomer = new clsCustomers();
@@ -541,7 +667,7 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "John";
             string LastName = "S";//this should be ok
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -551,7 +677,7 @@ namespace CustomersTestFramework
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void LastNamePlusOne()
+        public void LastNameMaxPlusOne()
         {
             //create an instance of the class we want to create
             clsCustomers ACustomer = new clsCustomers();
@@ -600,7 +726,7 @@ namespace CustomersTestFramework
             string FirstName = "John";
             string LastName = "";
             LastName = LastName.PadRight(50, 'S');//this should be ok
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = Convert.ToString(DateTime.Now.Date);
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -640,7 +766,7 @@ namespace CustomersTestFramework
             string FirstName = "";
             string LastName = "";
             LastName = LastName.PadRight(51, 'S');//this should fail
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = "27 / 04 / 2017";
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -659,7 +785,7 @@ namespace CustomersTestFramework
             string FirstName = "John";
             string LastName = "";
             LastName = LastName.PadRight(500, 'S');//this should fail
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = "27 / 04 / 2017";
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
