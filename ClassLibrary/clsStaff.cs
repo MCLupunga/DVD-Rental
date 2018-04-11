@@ -156,11 +156,32 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             string Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
             //if the firstname is blank
             if (first_name.Length == 0)
             {
                 //record the error
                 Error = Error + "The first name may not be blank : ";
+            }
+            //if the first name is greater than 50 characters
+            if (first_name.Length > 50)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 50 characters : ";
+            }
+            //cop the DOB value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(dOB);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the past : ";
+            }
+            //check to see if the date is greater than todays date
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date can not be in the future : ";
             }
             //return any error message
             return Error;
