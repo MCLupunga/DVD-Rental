@@ -246,5 +246,540 @@ namespace OrdersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        [TestMethod]
+        public void Stock_IDMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass the method
+            string Stock_ID = ""; //this should trigger an error message
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_IDMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store am error message
+            String Error = "";
+            //create some test data to pass the method
+            string Stock_ID = "567"; 
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_IDMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "56789";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_IDMaxLessOne ()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678912";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_IDMax()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "56789123";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_IDMid()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "567891";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_IDMaxPlusOne()
+            {
+                //create an instance of the class we want to create
+                clsOrders AnOrder = new clsOrders();
+                //string variable to store any error messages
+                String Error = "";
+                //create some test data to pass to the method
+                string Stock_ID = "56789123";
+                string Expected_Return_Date = "26/01/2018";
+                string Order_Date = "12/01/2018";
+                string Customer_ID = "123456";
+                string Payment_Method = "Card";
+                //invoke the method
+                Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+                //test to see that the result is correct
+                Assert.AreEqual(Error, "");
+            }
+        [TestMethod]
+        public void Stock_IDExtremeMax()
+            {
+                //create an instance of the class we want to create
+                clsOrders AnOrder = new clsOrders();
+                //string variable to store any error messages
+                String Error = "";
+                //create some test data to pass to the method
+                string Stock_ID = "";
+                Stock_ID = Stock_ID.PadRight(100, '1');
+                string Expected_Return_Date = "26/01/2018";
+                string Order_Date = "12/01/2018";
+                string Customer_ID = "123456";
+                string Payment_Method = "Card";
+                //invoke the method
+                Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+                //test to see that the result is correct
+                Assert.AreNotEqual(Error, "");
+            }
+        [TestMethod]
+        public void Customer_IDMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Customer_IDMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Customer_IDMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "1234";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Customer_IDMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "1234567";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Customer_IDMid()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Payment_MethodMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Payment_MethodMax()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Payment_MethodMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Cards";
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Order_DateExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to string variable
+            string Order_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Order_DateMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to string variable
+            string Order_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Order_DateMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to string variable
+            string Order_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Order_DateMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to string variable
+            string Order_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Order_DateExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Expected_Return_Date = "26/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 100 years
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to string variable
+            string Order_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Expected_Return_DateExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to string variable
+            string Expected_Return_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Expected_Return_DateMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to string variable
+            string Expected_Return_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Expected_Return_DateMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to string variable
+            string Expected_Return_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Expected_Return_DateMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to string variable
+            string Expected_Return_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Expected_Return_DateExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store any error messages
+            String Error = "";
+            //create some test data to pass to the method
+            string Stock_ID = "5678";
+            string Order_Date = "12/01/2018";
+            string Customer_ID = "123456";
+            string Payment_Method = "Card";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 100 years
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to string variable
+            string Expected_Return_Date = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
     }     
  } 

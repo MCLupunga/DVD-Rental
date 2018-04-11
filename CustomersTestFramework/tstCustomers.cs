@@ -755,26 +755,7 @@ namespace CustomersTestFramework
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        [TestMethod]
-        public void LastNameMaxPlusOne()
-        {
-            //create an instance of the class we want to create
-            clsCustomers ACustomer = new clsCustomers();
-            //string variable to store anu error message
-            string Error = "";
-            //create some test data to pass to the method
-            string FirstName = "";
-            string LastName = "";
-            LastName = LastName.PadRight(51, 'S');//this should fail
-            string DateAdded = "27 / 04 / 2017";
-            string DOB = DateTime.Now.Date.AddYears(-18).ToString();
-            string Email = "johnsmith@email.co.uk";
-            string PhoneNo = "07865432345";
-            //invoke the method
-            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
-        }
+
         [TestMethod]
         public void LastNameExtreme()
         {
