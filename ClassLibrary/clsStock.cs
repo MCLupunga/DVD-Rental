@@ -204,7 +204,31 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The date was not a valid date";
             }
-            
+
+            //is the genre field blank
+            if (genre.Length == 0)
+            {
+                //record the error
+                Error = Error + "The genre may not be blank : ";
+            }
+            //if genre is too long
+            if (genre.Length > 50)
+            {
+                //record the error
+                Error = Error + "The genre must be less than 50 characters : ";
+            }
+            //is the classification field blank
+            if (classification.Length == 0)
+            {
+                //record the error
+                Error = Error + "The classification may not be blank : ";
+            }
+            //if classification is too long
+            if (classification.Length > 50)
+            {
+                //record the error
+                Error = Error + "The classification must be less than 50 characters : ";
+            }
             //return any error messages
             return Error;
         }
