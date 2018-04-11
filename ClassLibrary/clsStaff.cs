@@ -127,20 +127,20 @@ namespace ClassLibrary
             //create an instance of the date connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the staffcode to search for
-            DB.AddParameter("@Staffcode", StaffCode);
+            DB.AddParameter("@Staff_code", StaffCode);
             //execute the stored procedure
             DB.Execute("sproc_tblStaff_FilterByUserNo");
             //if one record is found (there should be either 1 or 0)
             if (DB.Count == 1)
             {
                 //copy the data from the database to the private data members
-                mStaffCode = Convert.ToString(DB.DataTable.Rows[0]["StaffCode"]);
+                mStaffCode = Convert.ToString(DB.DataTable.Rows[0]["Staff_Code"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
-                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
-                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
-                mNextOfKin = Convert.ToString(DB.DataTable.Rows[0]["NextOfKin"]);
-                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DOB"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["First_name"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["Last_name"]);
+                mNextOfKin = Convert.ToString(DB.DataTable.Rows[0]["Next_of_Kin"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["Phone_Number"]);
                 //return that everything worked ok
                 return true;
             }
@@ -152,7 +152,9 @@ namespace ClassLibrary
             }
         }
 
-
-        
+        public string Valid(string address, string dOB, string first_name, string last_name, string next_of_Kin, string phone_Number)
+        {
+            return "";
+        }
     }
 }

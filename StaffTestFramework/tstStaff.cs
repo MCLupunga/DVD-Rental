@@ -149,7 +149,7 @@ namespace StaffTestFramework
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the staff code
-            if (AStaff.FirstName != "Maggie")
+            if (AStaff.FirstName != "Mary")
             {
                 OK = false;
             }
@@ -170,7 +170,7 @@ namespace StaffTestFramework
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the property
-            if (AStaff.LastName != "Dzikiti")
+            if (AStaff.LastName != "Zugs")
             {
                 OK = false;
             }
@@ -192,7 +192,7 @@ namespace StaffTestFramework
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the property
-            if (AStaff.Address != "123 DMU")
+            if (AStaff.Address != "1 Dmu St  ")
             {
                 OK = false;
             }
@@ -213,7 +213,7 @@ namespace StaffTestFramework
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the property
-            if (AStaff.DateOfBirth !=Convert.ToDateTime(DateTime.Now.Date.AddYears(-18)))
+            if (AStaff.DateOfBirth !=Convert.ToDateTime("01 / 01 / 1992"))
             {
                 OK = false;
             }
@@ -234,7 +234,7 @@ namespace StaffTestFramework
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the property
-            if (AStaff.NextOfKin != "Ruth Jones")
+            if (AStaff.NextOfKin != "Dave Zugs")
             {
                 OK = false;
             }
@@ -255,12 +255,51 @@ namespace StaffTestFramework
             //invoke test method
             Found = AStaff.Find(StaffCode);
             //check the property
-            if (AStaff.PhoneNo != "01215667896")
+            if (AStaff.PhoneNo != "781234562")
             {
                 OK = false;
             }
             //test to see that the rsult is correct
             Assert.IsTrue(OK);
         }
-    }    
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu St  ";
+            string DOB = "01 / 01 / 1992";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void First_nameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string Address = "1 Dmu St  ";
+            string DOB = "01 / 01 / 1992";
+            string First_name = "Mary";
+            string Last_name = "Zugs";
+            string Next_of_Kin = "Dave Zugs";
+            string Phone_Number = "781234562";
+            //invoke the method
+            Error = AStaff.Valid(Address, DOB, First_name, Last_name, Next_of_Kin, Phone_Number);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+    }   
+     
 }

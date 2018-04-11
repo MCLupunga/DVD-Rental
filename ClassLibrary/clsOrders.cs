@@ -106,19 +106,19 @@ namespace ClassLibrary
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the order number to search for
-            DB.AddParameter("@OrderNo", OrderNo);
+            DB.AddParameter("@Order_No", OrderNo);
             //execute the stored procedure
             DB.Execute("sproc_tblOrders_FilterByOrderNo");
             //if one record is found (there should be either 1 or 0)
             if (DB.Count == 1)
             {
                 //copy the data from the database to the private data members
-                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["OrderNo"]);
-                mCustomerID = Convert.ToString(DB.DataTable.Rows[0]["CustomerID"]);
-                mStockID = Convert.ToString(DB.DataTable.Rows[0]["StockID"]);
-                mExpectedReturnDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ExpectedReturnDate"]);
-                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
-                mPaymentMethod = Convert.ToString(DB.DataTable.Rows[0]["PaymentMthod"]);
+                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["Order_No"]);
+                mCustomerID = Convert.ToString(DB.DataTable.Rows[0]["Customer_No"]);
+                mStockID = Convert.ToString(DB.DataTable.Rows[0]["Stock_ID"]);
+                mExpectedReturnDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Expected_Return_Date"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Order_Date"]);
+                mPaymentMethod = Convert.ToString(DB.DataTable.Rows[0]["Payment_Method"]);
                 //return that everything worked ok
                 return true;
             }
@@ -128,6 +128,11 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
+        }
+
+        public string Valid(string stock_ID, string expected_Return_Date, string order_Date, string customer_ID, string payment_Method)
+        {
+            return "";
         }
     }
 }
