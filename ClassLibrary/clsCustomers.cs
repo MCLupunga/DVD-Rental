@@ -206,26 +206,72 @@ namespace ClassLibrary
             if (firstName.Length > 50)
             {
                 //record the error 
-                Error = Error + "The customerNo must be less than 1 characters";
+                Error = Error + "The customerNo must be less than 50 characters";
             }
-            //copy the dateAdded value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(dateAdded);
-            if (DateTemp < DateTime.Now.Date)
+            try
+            {
+
+
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see that the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error 
+                Error = Error + "The date was not a valid date : ";
+            }
+            //if the last name is blank
+            if(lastName.Length ==0)
             {
                 //record the error
-                Error = Error + "The date cannot be put in the past : ";
+                Error = Error + "The last name may not be blank : ";
             }
-            //check to see that the date is greater than today's date
-            if (DateTemp > DateTime.Now.Date)
+            //if the firstname is too long
+            if (lastName.Length > 51)
+            {
+                //record the error message
+                Error = Error + "The last name must be less than 51 characters : ";
+
+            }
+            //if the email is blank
+            if(email.Length == 0)
             {
                 //record the error
-                Error = Error + "The date cannot be in the future : ";
+                Error = Error + "The email may not be blank";
             }
-            //return any error messages
+            if(email.Length ==61)
+            {
+                //record the error
+                Error = Error + "The email must be less than 61 characters : ";
+            }
+            //if the phoneNo is blank
+            if(phoneNo.Length ==0)
+            {
+                //record the error message
+                Error = Error + "The phoneNo may not be left blank : ";
+
+            }
+            // if the phoneNo is too long
+            if(phoneNo.Length ==12)
+            {
+                //return the error message 
+                Error = Error + "The Phone No must be less than 12 digits";
+            }
+            //return any error message
             return Error;
             {
-                //create a string variable to store the error
-                //String Error = "";
+               
                 //if the CustomerNo is blank
                 if (firstName == "0")
                 {
