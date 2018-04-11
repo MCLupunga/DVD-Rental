@@ -154,7 +154,16 @@ namespace ClassLibrary
 
         public string Valid(string address, string dOB, string first_name, string last_name, string next_of_Kin, string phone_Number)
         {
-            return "";
+            //create a string variable to store the error
+            string Error = "";
+            //if the firstname is blank
+            if (first_name.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name may not be blank : ";
+            }
+            //return any error message
+            return Error;
         }
     }
 }
