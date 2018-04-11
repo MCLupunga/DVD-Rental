@@ -132,7 +132,22 @@ namespace ClassLibrary
 
         public string Valid(string stock_ID, string expected_Return_Date, string order_Date, string customer_ID, string payment_Method)
         {
-            return "";
+            //create a string variable to store the error
+            String Error = "";
+            //if Stock_ID is blank
+            if (stock_ID.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Stock_ID may not be blank: ";
+            }
+            //if the Stock_ID is greater than 8
+            if (stock_ID.Length > 8)
+            {
+                //record the error
+                Error = Error + "The Stock_ID must be less than 8 characters";
+            }
+            //return any error messages
+            return Error;
         }
     }
 }
