@@ -165,23 +165,23 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string stockID, string name, string genre, string classification, string releaseDate)
+        public string Valid(string name, string genre, string classification, string releaseDate)
         {
             //create a string variable to store the error
             string Error = "";
             //ceate  temporary variable to sre date values
             DateTime DateTemp;
             //if the HouseNo is blank
-            if (stockID.Length == 0)
+            if (name.Length == 0)
             {
                 //record the error
-                Error = Error + "The Stock ID may not be blank : ";
+                Error = Error + "The name should not be blank : ";
             }
             //if the StockID no is greater than 8 characters
-            if (stockID.Length > 8)
+            if (name.Length > 50)
             {
                 //record the error
-                Error = Error + "The Stock ID must be less than 8 characters : ";
+                Error = Error + "The name must be less than 50 characters : ";
             }
             try
             {
