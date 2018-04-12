@@ -535,7 +535,6 @@ namespace StockTestFramework
             //string variable to store any error message
             string Error = "";
             //create some test data to pass to the method
-            string StockID = "125";
             string Name = "The Hunger Games";
             string Genre = "Drama";
             string Classification = "12A";
