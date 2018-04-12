@@ -909,7 +909,7 @@ namespace CustomersTestFramework
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreEqual(Error, ""); //made changes
 
         }
         [TestMethod]
