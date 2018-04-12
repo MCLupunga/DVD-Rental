@@ -23,9 +23,10 @@ namespace CustomersTestFramework
             //create an instance of the class we want to create
             clsCustomersCollection AllCustomers = new clsCustomersCollection();
             //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
             List<clsCustomers> TestList = new List<clsCustomers>();
             //add an item to the list
-            //create the item to the list
+            //create the item of test data
             clsCustomers TestItem = new clsCustomers();
             //set its properties
             TestItem.Active = true;
@@ -33,6 +34,7 @@ namespace CustomersTestFramework
             TestItem.FirstName = "John";
             TestItem.LastName = "Smith";
             TestItem.DOB = DateTime.Now.Date.AddYears(-18);
+            TestItem.Email = "johnsmith@email.co.uk";
             TestItem.PhoneNo = "07865432345";
             TestItem.DateAdded = DateTime.Now.Date;
             //add the item to the test list
@@ -49,7 +51,7 @@ namespace CustomersTestFramework
             //create an instance of the class we want to create
             clsCustomersCollection AllCustomers = new clsCustomersCollection();
             //create some test data to assign to the property
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //assign the data to the property
             AllCustomers.Count = SomeCount;
             //test to see that the two values are the same
@@ -77,6 +79,43 @@ namespace CustomersTestFramework
             Assert.AreEqual(AllCustomers.ThisCustomers, TestCustomers);
         }
 
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomersCollection AllCustomers = new clsCustomersCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsCustomers> TestList = new List<clsCustomers>();
+            //add an item to the list
+            //create the item of test data
+            clsCustomers TestItem = new clsCustomers();
+            //set its properties
+            TestItem.Active = true;
+            TestItem.CustomerNo = 1;
+            TestItem.FirstName = "John";
+            TestItem.LastName = "Smith";
+            TestItem.DOB = DateTime.Now.Date.AddYears(-18);
+            TestItem.Email = "johnsmith@email.co.uk";
+            TestItem.PhoneNo = "07865432345";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllCustomers.CustomersList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, TestList.Count);
+
+        }
+
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            //create an instance of the class we want to create
+            clsCustomersCollection AllCustomers = new clsCustomersCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, 2);
+        }
 
     }
 }

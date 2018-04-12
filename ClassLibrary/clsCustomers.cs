@@ -243,10 +243,5 @@ namespace ClassLibrary
                 return Error;
             }
         }
-
-        public static implicit operator clsCustomers(List<clsCustomers> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
