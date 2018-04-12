@@ -79,5 +79,33 @@ namespace StockTestFramework
             //test to see the two values are the same
             Assert.AreEqual(AllStock.ThisStock, TestStock);
         }
+
+        [TestMethod]
+        public void ListandCountOK()
+        {
+            //create an instnace of the class we want to create
+            clsStockCollection AllStock = new clsStockCollection();
+            //create some test data to assign to the propert
+            //in this case the data needs to be a list of objects
+            List<clsStock> TestList = new List<clsStock>();
+            //add an item to the list
+            //create the item of test data
+            clsStock TestItem = new clsStock();
+            //set its properties
+            TestItem.StockID = "404";
+            TestItem.Name = "White Chicks";
+            TestItem.Genre = "Comedy";
+            TestItem.Classification = "15";
+            TestItem.ReleaseDate = DateTime.Now.Date;
+            TestItem.ShelfLocation = 6;
+            TestItem.Price = 2;
+            TestItem.Quantity = 7;
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllStock.StockList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.Count, TestList.Count);
+        }
     }
 }
