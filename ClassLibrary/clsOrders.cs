@@ -136,6 +136,8 @@ namespace ClassLibrary
             String Error = "";
             //create a temporary variable to store date values
             DateTime DateTemp;
+            //create a temporary variable to store date values for expected return date
+            DateTime TempReturnDate;
             //if Stock_ID is blank
             if (stock_ID.Length == 0)
             {
@@ -148,18 +150,47 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Stock_ID must be less than 8 characters: ";
             }
-            //copy the orderdate value to the datetemp variable
-            DateTemp = Convert.ToDateTime(order_Date);
-            if (DateTemp < DateTime.Now.Date)
+            try
             {
-                //record the error
-                Error = Error + "The date cannot be in the past";
+                //copy the orderdate value to the datetemp variable
+                DateTemp = Convert.ToDateTime(order_Date);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past";
+                }
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future";
+                }
             }
-            //check to see if the date is greater than todays date
-            if (DateTemp > DateTime.Now.Date)
+            catch
             {
                 //record the error
-                Error = Error + "The date cannot be in the future";
+                Error = Error + "The date was not a valid date : ";
+            }
+            try
+            {
+                //copy the orderdate value to the datetemp variable
+                TempReturnDate = Convert.ToDateTime(order_Date);
+                if (TempReturnDate < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The expected return date cannot be in the past";
+                }
+                //check to see if the date is greater than todays date
+                if (TempReturnDate > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The expected return date cannot be in the future";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The expected return date was not a valid date : ";
             }
             //return any error messages
             return Error;
