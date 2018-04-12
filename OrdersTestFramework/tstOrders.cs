@@ -683,7 +683,7 @@ namespace OrdersTestFramework
             //invoke the method
             Error = AnOrder.Valid(Stock_ID, Expected_Return_Date, Order_Date, Customer_ID, Payment_Method);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void Customer_IDMin()

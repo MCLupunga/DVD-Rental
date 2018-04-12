@@ -192,6 +192,30 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The expected return date was not a valid date : ";
             }
+            //is the Customer_ID blank
+            if (customer_ID.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer ID may not be blank";
+            }
+            //if the customer_ID is too long
+            if (customer_ID.Length > 9)
+            {
+                //record the error
+                Error = Error + "The customer ID must be less than 9 characters";
+            }
+            //if the Payment_Method is blank
+            if (payment_Method.Length == 0)
+            {
+                //record the error
+                Error = Error + "The payment method must not be left blank";
+            }
+            //if the Payment_Method is too long
+            if (payment_Method.Length > 5)
+            {
+                //record the error
+                Error = Error + "The payment method must be less than 5 characters";
+            }
             //return any error messages
             return Error;
         }
