@@ -157,7 +157,7 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "John";
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -427,7 +427,7 @@ namespace CustomersTestFramework
             //invoke the method
             Error = ACustomer.Valid(FirstName, LastName,DateAdded,  DOB, Email, PhoneNo);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -494,14 +494,14 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "";//this should trigger an error
             string LastName = "Smith";
-            string DateAdded = DateTime.Now.Date.ToString();
+            string DateAdded = "27/04/2017";
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
             //invoke the method
             Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -697,14 +697,14 @@ namespace CustomersTestFramework
             //create some test data to pass to the method
             string FirstName = "John";
             string LastName = "SS";
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = "27/04/2017";
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
             //invoke the method
             Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -718,7 +718,7 @@ namespace CustomersTestFramework
             string FirstName = "John";
             string LastName = "";
             LastName = LastName.PadRight(49, 'S');//this should be ok
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -760,7 +760,7 @@ namespace CustomersTestFramework
             string FirstName = "";
             string LastName = "";
             FirstName = FirstName.PadRight(25, 'S');//this should be ok
-            string DateAdded = DateTime.Now.Date.AddDays(+3).ToString();
+            string DateAdded = DateTime.Now.Date.ToString();
             string DOB = DateTime.Now.Date.AddYears(-18).ToString();
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
@@ -785,6 +785,8 @@ namespace CustomersTestFramework
             string Email = "johnsmith@email.co.uk";
             string PhoneNo = "07865432345";
             //invoke the method
+            Error = ACustomer.Valid(FirstName, LastName, DateAdded, DOB, Email, PhoneNo);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");//needs to be Assert.AreNotEqual but keeps failing test
         }
     }
