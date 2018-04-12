@@ -46,19 +46,6 @@ namespace CustomersTestFramework
         }
 
         [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomersCollection AllCustomers = new clsCustomersCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 2;
-            //assign the data to the property
-            AllCustomers.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
-        }
-
-        [TestMethod]
         public void ThisCustomersPropertyOk()
         {
             //create an instance of the class we want to create
@@ -107,15 +94,5 @@ namespace CustomersTestFramework
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
 
         }
-
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an instance of the class we want to create
-            clsCustomersCollection AllCustomers = new clsCustomersCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, 2);
-        }
-
     }
 }
