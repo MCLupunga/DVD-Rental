@@ -134,6 +134,8 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
             //if Stock_ID is blank
             if (stock_ID.Length == 0)
             {
@@ -145,6 +147,19 @@ namespace ClassLibrary
             {
                 //record the error
                 Error = Error + "The Stock_ID must be less than 8 characters: ";
+            }
+            //copy the orderdate value to the datetemp variable
+            DateTemp = Convert.ToDateTime(order_Date);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the past";
+            }
+            //check to see if the date is greater than todays date
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the future";
             }
             //return any error messages
             return Error;
