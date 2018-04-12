@@ -144,7 +144,7 @@ namespace ClassLibrary
             if (stock_ID.Length > 8)
             {
                 //record the error
-                Error = Error + "The Stock_ID must be less than 8 characters";
+                Error = Error + "The Stock_ID must be less than 8 characters: ";
             }
             //return any error messages
             return Error;
